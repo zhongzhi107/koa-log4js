@@ -3,8 +3,8 @@ var log4js = require('log4js');
 /*
 * middleware
 */
-module.exports = function(opts){
-  log4js.configure('log4js.json');
+module.exports = function(opts) {
+  log4js.configure(opts && opts.configFile || 'log4js.json');
   var logger = log4js.getLogger();
 
   return function* (next){
